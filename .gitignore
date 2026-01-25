@@ -1,0 +1,50 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+
+# PyInstaller
+*.manifest
+*.spec.bak
+
+# Compiled executables
+*.exe
+!icon.ico
+
+# Logs
+*.log
+
+# Archives
+*.zip
+*.tar.gz
+*.rar
+
+# IDE / Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Claude Code
+.claude/
+
+# OS generated
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# FFmpeg binary (too large for git)
+ffmpeg.exe
+ffprobe.exe
+
+# Old files (deprecated)
+audio_extractor.py
+audio_extractor.spec
+AudioExtractor.spec
+audio_extractor/
