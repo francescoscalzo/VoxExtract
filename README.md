@@ -42,7 +42,27 @@ VoxExtract è un'applicazione desktop per estrarre tracce audio da file video e 
 ╚══════════════════════════════════════════════════════════════╝
 ```
 
-## Requisiti
+## Versione Web / App installabile (consigliata)
+
+La cartella [`web/`](web/) contiene VoxExtract come **Progressive Web App**: gira nel browser grazie a [ffmpeg.wasm](https://ffmpegwasm.netlify.app/), senza installare Python né FFmpeg.
+
+- **Nessun blocco** di Windows SmartScreen / Controllo intelligente delle app o di macOS Gatekeeper: non è un eseguibile.
+- **Installabile**: in Chrome/Edge clicca *Installa come app* (o l'icona ⊕ nella barra indirizzi); su Safari (Mac) *File → Aggiungi al Dock*. Appare nel menu Start / Dock con la sua icona.
+- **Offline** dopo la prima apertura; **privacy**: i file non vengono mai caricati su un server.
+- Più file insieme, drag & drop, annullamento, IT/EN.
+
+Pubblicata automaticamente su GitHub Pages a ogni push su `main` che tocca `web/` (workflow `.github/workflows/pages.yml`).
+
+Prova in locale:
+
+```bash
+cd web && python3 -m http.server 8000
+# apri http://localhost:8000
+```
+
+> Limite: i file vengono elaborati in memoria dal browser; video molto lunghi in WAV/FLAC possono superare la memoria disponibile.
+
+## Requisiti (versione desktop Python)
 
 - **Python** 3.10 o superiore
 - **FFmpeg** installato e nel PATH di sistema (o nella stessa cartella dell'app)

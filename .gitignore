@@ -33,6 +33,7 @@ dist/
 
 # Claude Code
 .claude/
+.s2s/
 
 # OS generated
 .DS_Store

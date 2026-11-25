@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VoxExtract</title>
+  <meta name="description" content="Estrai l'audio dai tuoi video direttamente nel browser. Nessun upload, funziona offline.">
+  <meta name="theme-color" content="#0f0f1a">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+  <main class="app">
+    <header class="header">
+      <div class="lang">
+        <button type="button" class="lang-btn" data-lang="it">IT</button>
+        <button type="button" class="lang-btn" data-lang="en">EN</button>
+      </div>
+      <h1 class="title">✦ VoxExtract ✦</h1>
+      <p class="subtitle" data-i18n="app_subtitle"></p>
+    </header>
+
+    <section class="card">
+      <label class="drop" id="drop">
+        <input type="file" id="file-input" accept="video/*,audio/*,.mkv,.flv,.wmv,.mpeg,.mpg,.m4v" multiple hidden>
+        <span class="drop-icon" aria-hidden="true">🎬</span>
+        <span class="drop-title" data-i18n="drop_video_here"></span>
+        <span class="drop-hint" data-i18n="drop_hint"></span>
+      </label>
+
+      <div class="options">
+        <label class="field">
+          <span data-i18n="format"></span>
+          <select id="format">
+            <option value="MP3">MP3</option>
+            <option value="AAC">AAC</option>
+            <option value="FLAC">FLAC</option>
+            <option value="WAV">WAV</option>
+          </select>
+        </label>
+        <label class="field" id="quality-field">
+          <span data-i18n="quality"></span>
+          <select id="quality">
+            <option value="low" data-i18n="quality_low"></option>
+            <option value="medium" data-i18n="quality_medium" selected></option>
+            <option value="high" data-i18n="quality_high"></option>
+            <option value="best" data-i18n="quality_best"></option>
+          </select>
+        </label>
+      </div>
+
+      <button type="button" class="extract" id="extract" disabled>
+        <span id="extract-label" data-i18n="extract_audio"></span>
+      </button>
+
+      <p class="engine" id="engine" role="status"></p>
+    </section>
+
+    <section class="card queue" id="queue-card" hidden>
+      <ul class="queue-list" id="queue"></ul>
+    </section>
+
+    <footer class="footer">
+      <button type="button" class="install" id="install" hidden data-i18n="install_app"></button>
+      <p class="install-hint" id="install-hint" hidden></p>
+      <p class="privacy" data-i18n="privacy"></p>
+      <p class="powered">Powered by <a href="https://ffmpegwasm.netlify.app/" target="_blank" rel="noopener">ffmpeg.wasm</a></p>
+    </footer>
+  </main>
+
+  <template id="item-tpl">
+    <li class="item">
+      <div class="item-head">
+        <span class="item-name"></span>
+        <span class="item-status"></span>
+      </div>
+      <div class="bar"><div class="bar-fill"></div></div>
+      <div class="item-actions"></div>
+    </li>
+  </template>
+</body>
+</html>
